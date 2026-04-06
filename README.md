@@ -1,74 +1,89 @@
-# AirQual Cameroun — Application Streamlit
+# AirQual Cameroun 🌬️ — Surveillance prédictive de la qualité de l'air
 
-Surveillance prédictive de la qualité de l'air au Cameroun.
-Hackathon IndabaX Cameroon 2026.
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![IndabaX](https://img.shields.io/badge/IndabaX-Cameroon%202026-blue?style=for-the-badge)](https://indabax.cm)
 
-## Structure
+## 📌 Présentation
 
-```
-airqual_app/
-├── app.py                  # Point d'entrée principal
-├── requirements.txt
-├── assets/
-│   └── style.css           # Design system (thème sombre)
-├── models/                 # Artefacts exportés depuis le notebook
-│   ├── best_model_rf.joblib
-│   ├── features.json
-│   ├── label_encoder_region.joblib
-│   ├── city_profiles.csv
-│   ├── risk_table.csv
-│   └── global_stats.json
-├── pages/
-│   ├── accueil.py          # Carte de risque + alertes temps réel
-│   ├── predicteur.py       # Formulaire météo → prédiction PM2.5
-│   ├── dashboard.py        # Évolution temporelle par région
-│   ├── spatial.py          # Analyse spatiale comparative
-│   └── apropos.py          # Méthodologie + API publique
-└── utils/
-    ├── data.py             # Chargement modèle, API Open-Meteo, helpers
-    └── charts.py           # Visualisations Plotly avec thème cohérent
-```
+**AirQual Cameroun** est une application de surveillance et de prédiction de la qualité de l'air (particules fines PM2.5) développée dans le cadre du **Hackathon IndabaX Cameroon 2026**.
 
-## Installation
+Le projet répond à un défi majeur : l'absence de capteurs de qualité de l'air sur l'ensemble du territoire camerounais. En utilisant uniquement des données météorologiques (température, vent, précipitations, etc.) et des techniques de Machine Learning, AirQual estime la concentration de PM2.5 pour 40 villes majeures du Cameroun.
 
+## 🚀 Fonctionnalités
+
+L'application est structurée en 5 modules complémentaires :
+
+1.  **🏠 Accueil** : Dashboard national avec alertes en temps réel, KPIs et carte de risque interactive.
+2.  **🔮 Prédicteur** : Formulaire interactif permettant de prédire le niveau de PM2.5. Supporte la saisie manuelle ou le chargement automatique des données météo via l'API Open-Meteo.
+3.  **📊 Tableau de bord** : Analyse de l'évolution temporelle par région, heatmap de saisonnalité et statistiques détaillées.
+4.  **🗺️ Analyse spatiale** : Comparaison des zones à risque et étude de la corrélation entre stagnation atmosphérique et pollution.
+5.  **ℹ️ À propos** : Détails sur la méthodologie, documentation de l'API REST et sources de données.
+
+## 🛠️ Installation et Lancement
+
+### Prérequis
+- Python 3.9 ou supérieur
+- Un environnement virtuel (recommandé)
+
+### Installation
 ```bash
+git clone <url-du-repo>
+cd airqual-cameroun
 pip install -r requirements.txt
 ```
 
-## Lancement
-
+### Lancement
 ```bash
-# Copier d'abord les artefacts du notebook dans models/
-# (exécuter la cellule d'export dans le notebook)
-
 streamlit run app.py
 ```
 
-## Pages
+## 🏗️ Architecture du Projet
 
-| Page | Description |
-|------|-------------|
-| Accueil | Carte de risque interactive, alertes temps réel, KPIs nationaux |
-| Prédicteur | Formulaire météo ou API → prédiction PM2.5 + prévision 7 jours |
-| Tableau de bord | Évolution temporelle, heatmap saisonnalité, stats par région |
-| Analyse spatiale | Comparaison des villes, profils détaillés, scatter stagnation |
-| A propos | Méthodologie, documentation API REST, features du modèle, sources |
+```text
+.
+├── app.py                  # Point d'entrée principal (Navigation)
+├── requirements.txt        # Dépendances du projet
+├── Notebook_AlphaInfera.ipynb # Recherche, EDA et entraînement du modèle
+├── assets/                 # Design system (CSS, thèmes)
+├── models/                 # Artefacts du modèle et données de base
+│   ├── best_model_rf.joblib
+│   ├── features.json
+│   └── global_stats.json
+├── pages/                  # Modules de l'application Streamlit
+│   ├── accueil.py
+│   ├── predicteur.py
+│   ├── dashboard.py
+│   ├── spatial.py
+│   └── apropos.py
+└── utils/                  # Logique métier et visualisations
+    ├── data.py             # Chargement, API Open-Meteo, calculs
+    └── charts.py           # Création de graphiques Plotly
+```
 
-## API publique (cible FastAPI)
+## 🔬 Détails Techniques
 
-L'onglet "A propos" documente les endpoints de l'API REST déployable :
-- `GET /cities` — liste des villes
-- `GET /risk` — table de risque PM2.5
-- `GET /meteo/{city}` — météo temps réel
-- `POST /predict` — prédiction PM2.5 sur paramètres arbitraires
-- `GET /predict/{city}` — prédiction automatique via API météo
-- `GET /alerts` — alertes actives
+### Modèle Prédictif
+Le modèle retenu est un **Random Forest (RF) Optimisé** par recherche sur grille (Grid Search).
 
-## Modèle
+- **Performance** :
+  - **MAE (Mean Absolute Error)** : 0.0503
+  - **R² (Coefficient de détermination)** : 0.9994
+  - **MAE CV (Validation Croisée)** : 0.076 ± 0.002
+- **Features Clés** : Absence de pluie (`is_no_rain`), Saison sèche (`is_dry_season`), Température moyenne, Précipitations cumulées.
 
-RF Optimisé (GridSearch) — `max_depth=16, min_samples_leaf=5, n_estimators=200`
-MAE Test = 0.0503 · R² = 0.9994 · MAE CV = 0.076 ± 0.002
+### Sources de Données
+- **Données historiques** : Dataset IndabaX Cameroon 2026 (87 240 observations).
+- **Météo temps réel** : [Open-Meteo API](https://open-meteo.com).
+- **Référence Santé** : Lignes directrices de l'OMS (Seuil annuel : 15 µg/m³).
 
-## Données météo temps réel
+## 📡 API REST (Cible)
 
-Open-Meteo API (https://open-meteo.com) — libre, sans clé API, TTL cache 30 min.
+L'application documente une API cible (FastAPI) pour l'intégration tierce :
+- `GET /cities` : Liste des villes surveillées.
+- `GET /risk` : Table de risque par ville/région.
+- `POST /predict` : Prédiction PM2.5 sur paramètres arbitraires.
+- `GET /alerts` : Liste des alertes actives au niveau national.
+
+---
+*Développé pour l'IndabaX Cameroon 2026. L'air pur est un droit, sa surveillance une nécessité.*
