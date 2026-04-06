@@ -105,10 +105,10 @@ def render():
     st.markdown("<br>", unsafe_allow_html=True)
 
 
-    # ── Graphique principal ───────────────────────────────────────────────────
-    st.markdown('<p class="section-label">Évolution mensuelle 2024</p>', unsafe_allow_html=True)
-    fig_ts = regional_timeseries(df_ts, y_col=y_col, height=340)
-    st.plotly_chart(fig_ts, use_container_width=True, config={"displayModeBar": False})
+    # # ── Graphique principal ───────────────────────────────────────────────────
+    # st.markdown('<p class="section-label">Évolution mensuelle 2024</p>', unsafe_allow_html=True)
+    # fig_ts = regional_timeseries(df_ts, y_col=y_col, height=340)
+    # st.plotly_chart(fig_ts, use_container_width=True, config={"displayModeBar": False})
 
     st.markdown("<br>", unsafe_allow_html=True)
 
