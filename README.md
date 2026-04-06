@@ -6,7 +6,7 @@
 
 ##  Présentation
 
-**AirQual Cameroun** est une application de surveillance et de prédiction de la qualité de l'air (particules fines PM2.5) développée dans le cadre du **Hackathon IndabaX Cameroon 2026**.
+**Ce projet dénommé AirQual** est une application de surveillance et de prédiction de la qualité de l'air (particules fines PM2.5) développée dans le cadre du **Hackathon IndabaX Cameroon 2026**.
 
 Le projet répond à un défi majeur : l'absence de capteurs de qualité de l'air sur l'ensemble du territoire camerounais. En utilisant uniquement des données météorologiques (température, vent, précipitations, etc.) et des techniques de Machine Learning, AirQual estime la concentration de PM2.5 pour 40 villes majeures du Cameroun.
 
@@ -14,11 +14,11 @@ Le projet répond à un défi majeur : l'absence de capteurs de qualité de l'ai
 
 L'application est structurée en 5 modules complémentaires :
 
-1.  ** Accueil** : Dashboard national avec alertes en temps réel, KPIs et carte de risque interactive.
-2.  ** Prédicteur** : Formulaire interactif permettant de prédire le niveau de PM2.5. Supporte la saisie manuelle ou le chargement automatique des données météo via l'API Open-Meteo.
-3.  ** Tableau de bord** : Analyse de l'évolution temporelle par région, heatmap de saisonnalité et statistiques détaillées.
-4.  ** Analyse spatiale** : Comparaison des zones à risque et étude de la corrélation entre stagnation atmosphérique et pollution.
-5.  ** À propos** : Détails sur la méthodologie, documentation de l'API REST et sources de données.
+1.   Accueil : Dashboard national avec alertes en temps réel, KPIs et carte de risque interactive.
+2.   Prédicteur : Formulaire interactif permettant de prédire le niveau de PM2.5. Supporte la saisie manuelle ou le chargement automatique des données météo via l'API Open-Meteo.
+3.   Tableau de bord : Analyse de l'évolution temporelle par région, heatmap de saisonnalité et statistiques détaillées.
+4.   Analyse spatiale : Comparaison des zones à risque et étude de la corrélation entre stagnation atmosphérique et pollution.
+5.   À propos : Détails sur la méthodologie, documentation de l'API REST et sources de données.
 
 ##  Installation et Lancement
 
