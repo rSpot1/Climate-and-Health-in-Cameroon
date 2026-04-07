@@ -48,7 +48,7 @@ def render():
     st.markdown('<p class="section-label">Carte de risque</p>', unsafe_allow_html=True)
     if len(df_filtered):
         st.plotly_chart(risk_map(df_filtered, height=480),
-                        use_container_width=True, config={"displayModeBar": False})
+                        width='stretch', config={"displayModeBar": False})
 
     # ── Comparaison côte à côte ────────────────────────────────────────────────
     col_bar, col_sc = st.columns(2)
@@ -56,13 +56,13 @@ def render():
     with col_bar:
         st.markdown('<p class="section-label">PM2.5 moyen par ville (top 20)</p>', unsafe_allow_html=True)
         st.plotly_chart(city_bar(df_filtered.head(20)),
-                        use_container_width=True, config={"displayModeBar": False})
+                        width='stretch', config={"displayModeBar": False})
 
     with col_sc:
         st.markdown('<p class="section-label">Stagnation vs PM2.5</p>', unsafe_allow_html=True)
         if len(df_filtered):
             st.plotly_chart(stagnation_scatter(df_filtered),
-                            use_container_width=True, config={"displayModeBar": False})
+                            width='stretch', config={"displayModeBar": False})
 
     st.markdown("<br>", unsafe_allow_html=True)
 

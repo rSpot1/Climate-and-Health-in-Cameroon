@@ -142,7 +142,7 @@ def render():
     with col_map:
         st.markdown('<p class="section-label">Carte de risque PM2.5 par ville</p>', unsafe_allow_html=True)
         if len(risk_df):
-            st.plotly_chart(risk_map(risk_df), use_container_width=True, config={"displayModeBar": False})
+            st.plotly_chart(risk_map(risk_df), width='stretch', config={"displayModeBar": False})
         else:
             st.info("Données cartographiques indisponibles.")
 
@@ -177,7 +177,7 @@ def render():
         )
         st.plotly_chart(
             city_bar(risk_df.head(20), title=""),
-            use_container_width=True,
+            width='stretch',
             config={"displayModeBar": False},
         )
 
@@ -198,7 +198,7 @@ def render():
         )
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)
-        refresh = st.button("Actualiser les données", use_container_width=True)
+        refresh = st.button("Actualiser les données", width='stretch')
 
     if city_choice and len(cities):
         city_row = cities[cities["city"] == city_choice].iloc[0]

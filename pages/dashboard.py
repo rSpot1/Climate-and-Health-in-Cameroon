@@ -99,7 +99,7 @@ def render():
             with gcol:
                 st.plotly_chart(
                     pm25_gauge_dashboard(float(grow["pm25_moy"]), region=grow["region"], height=240),
-                    use_container_width=True, config={"displayModeBar": False},
+                    width='stretch', config={"displayModeBar": False},
                 )
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -108,7 +108,7 @@ def render():
     # # ── Graphique principal ───────────────────────────────────────────────────
     # st.markdown('<p class="section-label">Évolution mensuelle 2024</p>', unsafe_allow_html=True)
     # fig_ts = regional_timeseries(df_ts, y_col=y_col, height=340)
-    # st.plotly_chart(fig_ts, use_container_width=True, config={"displayModeBar": False})
+    # st.plotly_chart(fig_ts, width='stretch', config={"displayModeBar": False})
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -124,13 +124,13 @@ def render():
                            "Juil","Aoû","Sep","Oct","Nov","Déc"]
             pivot = pivot.reindex(columns=[m for m in month_order if m in pivot.columns])
             fig_heat = region_month_heatmap(pivot, height=300)
-            st.plotly_chart(fig_heat, use_container_width=True, config={"displayModeBar": False})
+            st.plotly_chart(fig_heat, width='stretch', config={"displayModeBar": False})
 
     with col_scatter:
         st.markdown('<p class="section-label">Stagnation vs PM2.5</p>', unsafe_allow_html=True)
         if len(risk_df):
             fig_sc = stagnation_scatter(risk_df, height=300)
-            st.plotly_chart(fig_sc, use_container_width=True, config={"displayModeBar": False})
+            st.plotly_chart(fig_sc, width='stretch', config={"displayModeBar": False})
 
     st.markdown("<br>", unsafe_allow_html=True)
 
