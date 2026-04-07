@@ -19,9 +19,6 @@ from utils.charts import risk_map, city_bar
 # Définition du fuseau horaire local pour affichage de l'heure précise
 tz = pytz.timezone('Africa/Douala') # Ou par exemple
 
-st.write(f'Heure précise : {heure_locale.strftime("%H:%M · %d %b %Y")}')
-
-
 def _alert_html(title: str, body: str, level: str) -> str:
     return (
         f'<div class="alert-banner alert-{level}">'
