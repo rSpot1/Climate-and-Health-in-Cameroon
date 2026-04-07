@@ -48,7 +48,7 @@ def render():
         )
     with col_api:
         st.markdown("<br>", unsafe_allow_html=True)
-        load_api = st.button("Charger depuis API Open-Meteo", use_container_width=True)
+        load_api = st.button("Charger depuis API Open-Meteo", width='stretch')
 
     # Récupération données API si demandé
     api_data = None
@@ -163,7 +163,7 @@ def render():
     level_label, level_css = pm25_level(pm25_pred)
 
     with col_pred:
-        st.plotly_chart(pm25_gauge(pm25_pred), use_container_width=True,
+        st.plotly_chart(pm25_gauge(pm25_pred), width='stretch',
                         config={"displayModeBar": False})
         oms_ratio = pm25_pred / stats["seuil_oms"]
         badge_html = f'<span class="badge badge-{level_css}">{level_label}</span>'
