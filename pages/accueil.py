@@ -6,6 +6,7 @@ from __future__ import annotations
 import time
 from datetime import datetime
 
+import pytz
 import pandas as pd
 import streamlit as st
 
@@ -14,6 +15,11 @@ from utils.data import (
     load_risk_table, pm25_level,
 )
 from utils.charts import risk_map, city_bar
+
+# Définition du fuseau horaire local pour affichage de l'heure précise
+tz = pytz.timezone('Africa/Douala') # Ou par exemple
+
+st.write(f'Heure précise : {heure_locale.strftime("%H:%M · %d %b %Y")}')
 
 
 def _alert_html(title: str, body: str, level: str) -> str:
@@ -56,7 +62,7 @@ def render():
             f'<span class="live-dot"></span>'
             f'<span style="font-size:.75rem;color:#8b949e;">Open-Meteo API</span><br>'
             f'<span style="font-family:\'IBM Plex Mono\';font-size:.7rem;color:#6e7681;">'
-            f'{datetime.now().strftime("%H:%M · %d %b %Y")}</span>'
+            f'{datetime.now(tz).strftime("%H:%M · %d %b %Y")}</span>'
             f'</div>',
             unsafe_allow_html=True,
         )
