@@ -18,7 +18,7 @@ L'application est structurée en 5 modules complémentaires :
 2.   Prédicteur : Formulaire interactif permettant de prédire le niveau de PM2.5. Supporte la saisie manuelle ou le chargement automatique des données météo via l'API Open-Meteo.
 3.   Tableau de bord : Analyse de l'évolution temporelle par région, heatmap de saisonnalité et statistiques détaillées.
 4.   Analyse spatiale : Comparaison des zones à risque et étude de la corrélation entre stagnation atmosphérique et pollution.
-5.   À propos : Détails sur la méthodologie, documentation de l'API REST et sources de données.
+5.   À propos : Détails sur la méthodologie
 
 ##  Installation et Lancement
 
