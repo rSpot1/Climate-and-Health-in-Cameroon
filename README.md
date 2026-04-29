@@ -28,7 +28,7 @@ L'application est structurée en 5 modules complémentaires :
 
 ### Installation
 ```bash
-git clone <url-du-repo>
+git clone https://github.com/rSpot1/Climate-and-Health-in-Cameroon
 cd Climate-and-Health-in-Cameroon
 pip install -r requirements.txt
 ```
