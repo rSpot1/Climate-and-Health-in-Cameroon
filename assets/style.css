@@ -7,17 +7,20 @@
 
 /* ── Tokens ──────────────────────────────────────────────────── */
 :root {
-    --bg-base:       #0d1117;
-    --bg-surface:    #161b22;
-    --bg-elevated:   #1c2431;
-    --bg-card:       #21262d;
+    /* Fonds plus clairs */
+    --bg-base:       #1a2030;   /* était #0d1117 */
+    --bg-surface:    #222b3a;   /* était #161b22 */
+    --bg-elevated:   #2a3548;   /* était #1c2431 */
+    --bg-card:       #2e3a4e;   /* était #21262d */
 
-    --border:        #30363d;
-    --border-light:  #21262d;
+    /* Bordures un peu plus visibles */
+    --border:        #3d4f65;   /* était #30363d */
+    --border-light:  #2e3a4e;   /* était #21262d */
 
-    --text-primary:   #e6edf3;
-    --text-secondary: #8b949e;
-    --text-muted:     #6e7681;
+    /* Texte légèrement rehaussé */
+    --text-primary:   #f0f6fc;  /* était #e6edf3 */
+    --text-secondary: #a8b5c4;  /* était #8b949e */
+    --text-muted:     #8a97a6;  /* était #6e7681 */
 
     --accent:         #f0a500;
     --accent-dim:     rgba(240,165,0,.1);
