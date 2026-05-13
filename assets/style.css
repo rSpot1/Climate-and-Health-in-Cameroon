@@ -420,4 +420,114 @@ div[data-testid="stMetric"] {
 div[data-testid="stMetricValue"] { font-family: var(--font-mono) !important; font-size: 1.4rem !important; color: var(--text-primary) !important; }
 div[data-testid="stMetricLabel"] { font-size: .7rem !important; text-transform: uppercase !important; letter-spacing: .07em !important; color: var(--text-muted) !important; }
 .stExpander { border: 1px solid var(--border) !important; border-radius: var(--radius-lg) !important; background: var(--bg-card) !important; box-shadow: 0 2px 8px rgba(0,0,0,.04) !important; }
+.stExpander summary, .stExpander summary p { color: var(--text-primary) !important; }
 hr { border-color: var(--border) !important; margin: 16px 0 !important; }
+
+/* ── Textes Streamlit natifs ─────────────────────────────────── */
+.stMarkdown p, .stMarkdown li, .stMarkdown h1, .stMarkdown h2,
+.stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
+    color: var(--text-primary) !important;
+}
+.stMarkdown small { color: var(--text-secondary) !important; }
+
+/* ── Inputs ──────────────────────────────────────────────────── */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stNumberInput > div > div > input,
+.stDateInput > div > div > input,
+.stTimeInput > div > div > input {
+    background: var(--bg-card) !important;
+    border-color: var(--border) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius) !important;
+}
+.stTextInput > div > div > input::placeholder,
+.stTextArea > div > div > textarea::placeholder {
+    color: var(--text-muted) !important; opacity: 1 !important;
+}
+
+/* Labels de tous les widgets */
+.stTextInput label, .stTextArea label, .stNumberInput label,
+.stSelectbox label, .stMultiSelect label, .stSlider label,
+.stDateInput label, .stTimeInput label, .stCheckbox label,
+.stRadio label, .stFileUploader label {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+}
+
+/* ── Selectbox & dropdown ────────────────────────────────────── */
+.stSelectbox > div > div > div,
+.stMultiSelect > div > div > div { color: var(--text-primary) !important; }
+[data-baseweb="popover"] *, [data-baseweb="menu"] * {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+[data-baseweb="option"]:hover { background-color: var(--accent-dim) !important; }
+
+/* ── Checkbox & Radio ────────────────────────────────────────── */
+.stCheckbox span, .stRadio span { color: var(--text-primary) !important; }
+
+/* ── Dataframe / table native ────────────────────────────────── */
+.stDataFrame, .stTable {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-lg) !important;
+}
+.stDataFrame th, .stTable th {
+    background: var(--bg-surface) !important;
+    color: var(--text-muted) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+.stDataFrame td, .stTable td {
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+/* ── Alerts (info/warning/error/success) ─────────────────────── */
+[data-testid="stAlert"] { border-radius: var(--radius-lg) !important; border-left-width: 3px !important; }
+[data-testid="stAlert"] p, [data-testid="stAlert"] span { color: var(--text-primary) !important; }
+
+/* ── File uploader ───────────────────────────────────────────── */
+[data-testid="stFileUploader"] {
+    background: var(--bg-card) !important;
+    border: 1px dashed var(--border) !important;
+    border-radius: var(--radius-lg) !important;
+}
+[data-testid="stFileUploader"] * { color: var(--text-secondary) !important; }
+
+/* ── Code blocks ─────────────────────────────────────────────── */
+.stCodeBlock, pre, code {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    color: #2d6a9f !important;
+}
+
+/* ── Multiselect tags ────────────────────────────────────────── */
+[data-baseweb="tag"] { background: var(--accent-dim) !important; border-color: rgba(240,165,0,.3) !important; }
+[data-baseweb="tag"] span { color: var(--accent) !important; }
+
+/* ── Tooltip ─────────────────────────────────────────────────── */
+[data-baseweb="tooltip"] [role="tooltip"] {
+    background: var(--bg-elevated) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,.10) !important;
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+.stProgress > div > div { background: var(--border) !important; border-radius: 4px !important; }
+.stProgress > div > div > div { background: var(--accent) !important; }
+
+/* ── Caption / helper text ───────────────────────────────────── */
+[data-testid="stCaptionContainer"] p, .stCaption { color: var(--text-muted) !important; }
+
+/* ── Plotly charts ───────────────────────────────────────────── */
+.js-plotly-plot .plotly .bg { fill: var(--bg-card) !important; }
+.js-plotly-plot .plotly text { fill: var(--text-secondary) !important; }
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
